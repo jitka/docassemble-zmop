@@ -1,5 +1,5 @@
 ---
-question: Způsob výplaty dávky
+question: Způsob výplaty dávky diff
 subquestion: Dávku vyplácejte ${ full_payment_metod }!
 buttons:
   - Exit: exit
