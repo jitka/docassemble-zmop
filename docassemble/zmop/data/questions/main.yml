@@ -5,14 +5,14 @@ objects:
   p4: Individual
   p5: Individual
   p6: Individual
-  p1.pernament: Individual
-  p1.real: Individual
-  p1.contact: Individual
-  p2.real: Individual
-  p3.real: Individual
-  p4.real: Individual
-  p5.real: Individual
-  p6.real: Individual
+  p1.pernament: Adress
+  p1.real: Adress
+  p1.contact: Adress
+  p2.real: Adress
+  p3.real: Adress
+  p4.real: Adress
+  p5.real: Adress
+  p6.real: Adress
   a1: Individual
   a2: Individual
   a3: Individual
@@ -42,24 +42,42 @@ fields:
   - Příjmení: p1.surname
 ---
 code: |
+  adress0 = {
+     "city": " ",
+     "street": " ",
+     "no": " ",
+     "street_no": " ",
+     "postal_code": " ",
+     }
+  adress1 = {
+     "city": "Praha",
+     "street": "Hradčanské nám.",
+     "no": "123",
+     "street_no": "1",
+     "postal_code": "110 00",
+     }
+  adress2 = {
+     "city": "Brno",
+     "street": "Česká",
+     "no": "123",
+     "street_no": "1",
+     "postal_code": "666 66",
+     }
+  adress3 = {
+     "city": "Ostrava",
+     "street": "Stodolní",
+     "no": "1",
+     "street_no": "4",
+     "postal_code": "777 77",
+     }
+---
+code: |
   p1.rc = "111111111"
   p1.maiden_name = ""
   p1.nationality = "Česká"
-  p1.pernament.city = "Praha"
-  p1.pernament.street = "Hradčanské nám."
-  p1.pernament.no = "123"
-  p1.pernament.street_no = "1"
-  p1.pernament.postal_code = "110 00"
-  p1.real.city = "Brno"
-  p1.real.street = "Česká"
-  p1.real.no = "1"
-  p1.real.street_no = ""
-  p1.real.postal_code = "666 66"
-  p1.contact.city = ""
-  p1.contact.street = "" 
-  p1.contact.no = ""
-  p1.contact.street_no = ""
-  p1.contact.postal_code = ""
+  p1.pernament = adress1 
+  p1.real = adress2
+  p1.contact = adress1
   p1.marital_status = "Vdaný"
   p1.partner_no = "2"
   p1.parents_no = ""
@@ -76,11 +94,7 @@ code: |
   p2.rc = "12234567"
   p2.maiden_name = "Nováková"
   p2.nationality = "Česká"
-  p2.real.city = "Ostrava"
-  p2.real.street = "Stodolní"
-  p2.real.no = "1"
-  p2.real.street_no = "4"
-  p2.real.postal_code = "777 77"
+  p2.real = adress3
   p2.marital_status = "vdaná"
   p2.partner_no = "1"
   p3.surname = ""
