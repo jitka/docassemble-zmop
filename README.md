@@ -1,2 +1,1 @@
-Zde vznika dokaznik
-tralala
+tady to vznika
