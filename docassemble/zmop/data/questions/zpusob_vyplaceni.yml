@@ -11,7 +11,7 @@ code: |
     return True
 ---
 code: |
-  to_account = "X"
+  to_account = ""
   account = "123456789"
   bank_code = "0800"
   specific_symbol = "123345678"
@@ -22,8 +22,9 @@ code: |
   other_adress = adress0
   cash = ""
   if paymend_metod == "cash":
-     account_owner.name = "Honza"
      cash = "X"
+  elif paymend_metod == "post-perment":
+     pp_permanent = "X"
 ---
 question: Výplata převodem na účet
 fields:
@@ -40,7 +41,8 @@ fields:
    code: |
      [ 
        {'account': 'Na účet'},
-       {'post': 'poštovním poukazem'},
+       {'post-permanent': 'poštovním poukazem na trvalou adresu {}'.format(p1.pernament)},
+       {'post-other': 'poštovním poukazem'},
        {'cash': 'v hotovosti'},
      ]
    default: account

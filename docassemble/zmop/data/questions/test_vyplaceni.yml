@@ -1,6 +1,12 @@
 ---
 include: zpusob_vyplaceni.yml
 ---
+objects:
+  p1: Individual
+---
+code: |
+  p1.pernament = adress1 
+---
 question: Způsob výplaty dávky diff
 subquestion: |
   Dávku vyplácejte
