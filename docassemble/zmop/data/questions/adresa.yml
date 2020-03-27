@@ -1,0 +1,7 @@
+---
+question: |
+  Údaje o žadateli
+fields:
+  - Jméno: p1.name
+  - Příjmení: p1.surname
+---
