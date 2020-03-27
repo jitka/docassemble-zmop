@@ -5,6 +5,12 @@ objects:
   account_owner: Individual
 ---
 code: |
+  def is_valid_bank_account(account_number):
+    if int(account_number)/4 != 0:
+      validation_error("Toto není validní číslo účtu")
+    return True
+---
+code: |
   to_account = "X"
   account = "123456789"
   bank_code = "0800"
@@ -15,19 +21,16 @@ code: |
   pp_other_address = "" 
   other_adress = adress0
   cash = ""
----
-code: |
-  def is_valid_bank_account(account_number):
-    if int(account_number)/4 != 0:
-      validation_error("Toto není validní číslo účtu")
-    return True
+  if paymend_metod == "cash":
+     account_owner.name = "Honza"
+     cash = "X"
 ---
 question: Výplata převodem na účet
 fields:
   - Číslo účtu: account_number
     datatype: number
     validate: is_valid_bank_account
-  - Kód banky: bank_code 
+  - Kód banky: bank_code
     datatype: number
 ---
 question: Zaškrtněte preferovaný způsob výplaty dávky
@@ -41,5 +44,6 @@ fields:
        {'cash': 'v hotovosti'},
      ]
    default: account
+mandatory: True
 ---
 

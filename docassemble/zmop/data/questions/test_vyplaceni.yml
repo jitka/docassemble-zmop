@@ -3,7 +3,7 @@ include: zpusob_vyplaceni.yml
 ---
 question: Způsob výplaty dávky diff
 subquestion: |
-  Dávku vyplácejte ${ full_payment_metod }!
+  Dávku vyplácejte
   
   - ${ to_account } ${ account } ${ bank_code } ${ specific_symbol } ${account_owner.surname } ${ account_owner.name }
   
@@ -16,16 +16,6 @@ buttons:
   - Exit: exit
 mandatory: True
 ---
-code: |
-  if paymend_metod == 'account':
-     full_payment_metod = "na účet {}/{}".format(
-        account_number,
-        bank_code,
-        )
-  elif paymend_metod == 'post':
-     full_payment_metod = "poštovní poukazkou na trvalou adresu"
-  elif paymend_metod == 'cash':
-     full_payment_metod = 'v hotovosti'
----
+
 
 
