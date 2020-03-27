@@ -12,19 +12,25 @@ code: |
 ---
 code: |
   to_account = ""
-  account = "123456789"
-  bank_code = "0800"
-  specific_symbol = "123345678"
-  account_owner.surname = "Novák"
-  account_owner.name = "Jan"
+  account = ""
+  bank_code = ""
+  specific_symbol = ""
+  account_owner.surname = ""
+  account_owner.name = ""
   pp_pernament = ""
   pp_other_address = "" 
-  other_adress = adress0
+  other_address = adress0
   cash = ""
   if paymend_metod == "cash":
      cash = "X"
-  elif paymend_metod == "post-perment":
-     pp_permanent = "X"
+  elif paymend_metod == "post-pernament":
+     pp_pernament = "X"
+  elif paymend_metod == "post-other":
+     pp_other_address = "X"
+     other_address = adress2
+  elif paymend_metod == "account":
+     to_account = "X"
+
 ---
 question: Výplata převodem na účet
 fields:
@@ -40,9 +46,9 @@ fields:
    input type: radio
    code: |
      [ 
-       {'account': 'Na účet'},
-       {'post-permanent': 'poštovním poukazem na trvalou adresu {}'.format(p1.pernament)},
-       {'post-other': 'poštovním poukazem'},
+       {'account': 'na účet'},
+       {'post-pernament': 'poštovním poukazem na trvalou adresu {}'.format(p1.pernament)},
+       {'post-other': 'poštovním poukazem na jinou adresu'},
        {'cash': 'v hotovosti'},
      ]
    default: account

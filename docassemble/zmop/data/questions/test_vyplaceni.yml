@@ -15,7 +15,7 @@ subquestion: |
   
   - ${ pp_pernament }
   
-  - ${ pp_other_address } ${ other_adress }
+  - ${ pp_other_address } ${ other_address }
   
   - ${ cash }
 buttons:
