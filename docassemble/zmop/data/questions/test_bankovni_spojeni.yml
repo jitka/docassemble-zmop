@@ -1,0 +1,11 @@
+---
+include: bankovni_spojeni.yml
+---
+question: Načtené bankovní spojení
+subquestion: |
+  ${ user_account } / ${ user_bank_code } 
+# spec ${ specific_symbol } ${account_owner.surname } owner: ${ account_owner.name }
+buttons:
+  - Exit: exit
+mandatory: True
+---
