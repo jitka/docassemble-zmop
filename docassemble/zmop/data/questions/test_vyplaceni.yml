@@ -2,7 +2,16 @@
 include: zpusob_vyplaceni.yml
 ---
 question: Způsob výplaty dávky diff
-subquestion: Dávku vyplácejte ${ full_payment_metod }!
+subquestion: |
+  Dávku vyplácejte ${ full_payment_metod }!
+  
+  - ${ to_account } ${ account } ${ bank_code } ${ specific_symbol } ${account_owner.surname } ${ account_owner.name }
+  
+  - ${ pp_pernament }
+  
+  - ${ pp_other_address } ${ other_adress }
+  
+  - ${ cash }
 buttons:
   - Exit: exit
 mandatory: True

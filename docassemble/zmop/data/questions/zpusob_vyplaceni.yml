@@ -1,4 +1,21 @@
 ---
+include: vzorove_hodnoty.yml
+---
+objects:
+  account_owner: Individual
+---
+code: |
+  to_account = "X"
+  account = "123456789"
+  bank_code = "0800"
+  specific_symbol = "123345678"
+  account_owner.surname = "Novák"
+  account_owner.name = "Jan"
+  pp_pernament = ""
+  pp_other_address = "" 
+  other_adress = adress0
+  cash = ""
+---
 code: |
   def is_valid_bank_account(account_number):
     if int(account_number)/4 != 0:
