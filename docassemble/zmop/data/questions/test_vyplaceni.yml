@@ -1,11 +1,12 @@
 ---
-include: zpusob_vyplaceni.yml
+include: 
+  - zpusob_vyplaceni.yml
 ---
 objects:
   p1: Individual
 ---
 code: |
-  p1.pernament = adress1 
+  p1.pernament = address1 
 ---
 question: Způsob výplaty dávky diff
 subquestion: |
@@ -15,7 +16,7 @@ subquestion: |
   
   - ${ pp_pernament }
   
-  - ${ pp_other_address } ${ other_address }
+  - ${ pp_other_address } ${ other_address.city }
   
   - ${ cash }
 buttons:

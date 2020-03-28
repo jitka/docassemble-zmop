@@ -62,13 +62,12 @@ fields:
    code: |
      [ 
        {'account': 'na účet'},
-       #{'post-pernament': 'poštovním poukazem na trvalou adresu {}'.format(p1.pernament)},
-       {'post-pernament': 'poštovním poukazem na trvalou adresu'},
+       {'post-pernament': 'poštovním poukazem na trvalou adresu {}'.format(p1.pernament.city)},
        {'post-other': 'poštovním poukazem na jinou adresu'},
        {'cash': 'v hotovosti'},
      ]
    default: account
-#section: payment
-#progress: 80
+section: payment
+progress: 80
 ---
 
