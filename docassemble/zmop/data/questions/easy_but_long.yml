@@ -1,0 +1,90 @@
+---
+metadata:
+  title: Easy but long
+  short title: Easy but long
+  description: Easy but long form
+  authors:
+    - name: Ondřej Profant
+      organization: Pirátská strana
+  revision_date: 2015-09-28
+---
+sections:
+  - Úvod
+  - Otázky
+  - Kontrola
+---
+features:
+  navigation: True
+  progress bar: True
+---
+objects:
+  - people: DAList.using(object_type=Individual, ask_number=True)
+---
+sets:
+  - people[i].name.first
+question: |
+  Já, ${ zadatel }, žádám pro:
+fields:
+  code: name_list
+---
+mandatory: True
+question: Závěrečná kontrola
+subquestion: |
+  Prosím, zkontrolujte si formulář. V případě drobných chyb vás budeme kontaktovat telefonicky a opravíme je spolu.
+  
+  Žádám pro: ${ zadatel } o 
+  
+  % for person in people:
+  * ${ person }
+  % endfor
+  
+  ${ vysse_prispevku } Kč z důvodů:
+  
+  Popis situace: ```${ popis_situace }```
+  
+  Popis účelu: ```${ popis_ucelu }```
+section: Kontrola
+progress: 95
+---
+question: Žadatelé 1
+fields:
+  - Žadatel: zadatel
+    default: "Ondřej Profant"
+  - Počet osob v domácnosti: people.target_number
+    default: 2
+    min: 1
+    max: 12
+section: Otázky
+need:
+  - user_saw_intro
+---
+question: Výšše příspěvku
+fields:
+  - Výšše příspěvku v Kč: vysse_prispevku
+    default: 5000
+    datatype: number
+section: Otázky
+---
+question: Popis životní situace
+fields:
+  - Popis životní situace: popis_situace
+    default: Pandemie COVID-19 mi zamezila v provozování samotatné výdělečné činnosti
+    datatype: text
+  - Popis účeli mimořádné okamžité pomoci: popis_ucelu
+    default: Nájem
+    datatype: text
+section: Otázky
+---
+code: |
+  name_list = list()
+  for index in range(people.number()):
+    name_list.append(
+      {"label": ordinal(index, capitalize=True) + " person's given name",
+       "field": "people[" + str(index) + "].name.first",
+       "default": zadatel
+      })
+    name_list.append(
+      {"label": ordinal(index, capitalize=True) + " person's surname",
+       "field": "people[" + str(index) + "].name.last"
+      })
+---
