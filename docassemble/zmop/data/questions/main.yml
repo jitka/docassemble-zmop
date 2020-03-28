@@ -1,22 +1,25 @@
+sections:
+  - intro: Úvod
+  - payment: Způsob výplaty
+  - end: Hotovo
 ---
 include:
   - tmp_castecne_vyplnene_hodnoty.yml
   - zpusob_vyplaceni.yml
 ---
+features:
+  navigation: True
+  progress bar: True
+---
 question: |
-  Assembling a document from a .docx
-  template
+  Vítáme vás v interaktivním vyplvání dokumentu
+
+  **Žádnout o mimořádnou okamžitou pomoc**
 subquestion: |
-  
-  This interview will fill fields in
-  a .docx template.  You can
-  [download the template] to see what
-  it looks like.
-  The letter will be sent by the
-  user to an adverse party to
-  complain about something.
-  [download the template]: ${ url_of('letter_template.docx') }
+  Budete požáďání o vyplnění otázek a nazávěr dostanete vygenerovany dokument.
+  Můžěte si i stáhnout [template]: ${ url_of('letter_template.docx') }
 field: introduction_shown
+section: Úvod
 ---
 question: |
   Údaje o žadateli
@@ -40,6 +43,8 @@ attachment:
   valid formats:
     - pdf
     - docx
+section: en
+progress: 100
 ---
 mandatory: True
 code: |

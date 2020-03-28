@@ -15,7 +15,7 @@ code: |
   account_owner.name = ""
   pp_pernament = ""
   pp_other_address = "" 
-  other_address = adress0
+  other_address = address0
   cash = ""
   if paymend_metod == "cash":
      cash = "X"
@@ -39,11 +39,14 @@ fields:
    code: |
      [ 
        {'account': 'na účet'},
-       {'post-pernament': 'poštovním poukazem na trvalou adresu {}'.format(p1.pernament)},
+       #{'post-pernament': 'poštovním poukazem na trvalou adresu {}'.format(p1.pernament)},
+       {'post-pernament': 'poštovním poukazem na trvalou adresu'},
        {'post-other': 'poštovním poukazem na jinou adresu'},
        {'cash': 'v hotovosti'},
      ]
    default: account
+section: payment
+progress: 80
 mandatory: True
 ---
 
