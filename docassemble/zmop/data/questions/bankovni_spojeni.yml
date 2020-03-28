@@ -10,3 +10,7 @@ fields:
   - Kód banky: user_bank_code
     datatype: number
 ---
+question: What is your favorite animal?
+fields:
+  - Animal: favorite_animal
+---

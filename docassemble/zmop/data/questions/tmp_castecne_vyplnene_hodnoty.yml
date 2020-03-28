@@ -1,0 +1,116 @@
+---
+include: vzorove_hodnoty.yml
+---
+objects:
+  p1: Individual
+  p2: Individual
+  p3: Individual
+  p4: Individual
+  p5: Individual
+  p6: Individual
+  p1.pernament: Individual
+  p1.real: Individual
+  p1.contact: Individual
+  p2.real: Individual
+  p3.real: Individual
+  p4.real: Individual
+  p5.real: Individual
+  p6.real: Individual
+  a1: Individual
+  a2: Individual
+  a3: Individual
+  account_owner: Individual
+  other_address: Individual
+  adverse_party: Individual
+---
+code: |
+  p1.rc = "111111111"
+  p1.name = "Opička"
+  p1.surname = "Skákavá"
+  p1.maiden_name = ""
+  p1.nationality = "Česká"
+  p1.pernament = adress1 
+  p1.real = adress2
+  p1.contact = adress1
+  p1.marital_status = "Vdaný"
+  p1.partner_no = "2"
+  p1.parents_no = ""
+  p1.live_in_CZ = "X"
+  p1.retired = ""
+  p1.dependency = ""
+  p1.phone = "603604053"
+  p1.email = "a@email.cz"
+  p1.ds = ""
+  story = "Stalo se mi velký špatný" 
+  ammount = 50000
+  p2 = person2 
+  p3.surname = ""
+  p3.name = ""
+  p3.rc = ""
+  p3.maiden_name = ""
+  p3.nationality = ""
+  p3.real.city = ""
+  p3.real.street = ""
+  p3.real.no = ""
+  p3.real.street_no = ""
+  p3.real.postal_code = ""
+  p3.marital_status = ""
+  p3.partner_no = ""
+  p4.surname = ""
+  p4.name = ""
+  p4.rc = ""
+  p4.maiden_name = ""
+  p4.nationality = ""
+  p4.real.city = ""
+  p4.real.street = "" 
+  p4.real.no = ""
+  p4.real.street_no = ""
+  p4.real.postal_code = ""
+  p4.marital_status = ""
+  p4.partner_no = ""
+  p5.surname = ""
+  p5.name = ""
+  p5.rc = ""
+  p5.maiden_name = ""
+  p5.nationality = ""
+  p5.real.city = ""
+  p5.real.street = ""
+  p5.real.no = ""
+  p5.real.street_no = ""
+  p5.real.postal_code = ""
+  p5.marital_status = ""
+  p5.partner_no = ""
+  p6.surname = ""
+  p6.name = ""
+  p6.rc = ""
+  p6.maiden_name = ""
+  p6.nationality = ""
+  p6.real.city = ""
+  p6.real.street = ""
+  p6.real.no = ""
+  p6.real.street_no = ""
+  p6.real.postal_code = ""
+  p6.marital_status = ""
+  p6.partner_no = ""
+  a1.belongs_to = "2"
+  a1.city = "Zlín"
+  a1.street = "náměstí" 
+  a1.no = "1"
+  a1.street_no = ""
+  a1.postal_code = "435 64"
+  a2.belongs_to = ""
+  a2.city = ""
+  a2.street = "" 
+  a2.no = ""
+  a2.street_no = ""
+  a2.postal_code = ""
+  a3.belongs_to = ""
+  a3.city = ""
+  a3.street = "" 
+  a3.no = ""
+  a3.street_no = ""
+  a3.postal_code = ""
+  cash = ""
+  signition_city = "Havlíčkově Brodě"
+  signition_date = "1.1.2020"
+---

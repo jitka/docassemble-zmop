@@ -26,6 +26,9 @@ code: |
      other_address = adress2
   elif paymend_metod == "account":
      to_account = "X"
+     # specific_symbol = user_specific
+     specific_symbol = favorite_animal
+     account = favourite_animal
      account = user_account
      bank_code = user_bank_code
 ---
