@@ -1,0 +1,11 @@
+---
+question: Podepsáno
+fields:
+  - V: signition_city
+    default: ${ p1.real.city }
+  - Dne: signition_date
+    datatype: date
+    default: ${ today }
+section: paymend
+progress: 90%
+---
