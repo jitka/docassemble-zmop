@@ -7,30 +7,53 @@ objects:
   account_owner: Individual
 ---
 code: |
-  to_account = ""
-  account = ""
-  bank_code = ""
-  specific_symbol = ""
-  account_owner.surname = ""
-  account_owner.name = ""
-  pp_pernament = ""
-  pp_other_address = "" 
-  other_address = address0
-  cash = ""
   if paymend_metod == "cash":
-     cash = "X"
+    to_account = ""
+    account = ""
+    bank_code = ""
+    specific_symbol = ""
+    account_owner.surname = ""
+    account_owner.name = ""
+    pp_pernament = ""
+    pp_other_address = "" 
+    other_address = address0
+    cash = "X"
   elif paymend_metod == "post-pernament":
-     pp_pernament = "X"
+    to_account = ""
+    account = ""
+    bank_code = ""
+    specific_symbol = ""
+    account_owner.surname = ""
+    account_owner.name = ""
+    pp_pernament = "X"
+    pp_other_address = "" 
+    other_address = address0
+    cash = ""
   elif paymend_metod == "post-other":
-     pp_other_address = "X"
-     other_address = adress2
+    to_account = ""
+    account = ""
+    bank_code = ""
+    specific_symbol = ""
+    account_owner.surname = ""
+    account_owner.name = ""
+    pp_pernament = ""
+    pp_other_address = "" 
+    other_address = address0
+    cash = ""
+
+    pp_other_address = "X"
+    other_address = address2
   elif paymend_metod == "account":
-     to_account = "X"
-     # specific_symbol = user_specific
-     specific_symbol = favorite_animal
-     account = favourite_animal
-     account = user_account
-     bank_code = user_bank_code
+    to_account = "X"
+    account = user_account
+    bank_code = user_bank_code
+    specific_symbol = ""
+    account_owner.surname = ""
+    account_owner.name = ""
+    pp_pernament = ""
+    pp_other_address = "" 
+    other_address = address0
+    cash = ""
 ---
 question: Zaškrtněte preferovaný způsob výplaty dávky
 fields:
@@ -45,8 +68,7 @@ fields:
        {'cash': 'v hotovosti'},
      ]
    default: account
-section: payment
-progress: 80
-mandatory: True
+#section: payment
+#progress: 80
 ---
 

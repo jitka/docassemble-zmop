@@ -10,7 +10,7 @@ objects:
 # address4: Address
 ---
 code: |
-  address0.city = "Praha"
+  address0.city = ""
   address0.street = ""
   address0.no = ""
   address0.street_no = ""
