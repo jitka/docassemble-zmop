@@ -1,33 +1,59 @@
 ---
+objects:
+  person0: Individual
+  person1: Individual
+  person2: Individual
+  address0: Address
+  address1: Address
+  address2: Address
+  address3: Address
+# address4: Address
+---
 code: |
-  adress0 = {
-     "city": " ",
-     "street": " ",
-     "no": " ",
-     "street_no": " ",
-     "postal_code": " ",
-     }
-  adress1 = {
-     "city": "Praha",
-     "street": "Hradčanské nám.",
-     "no": "123",
-     "street_no": "1",
-     "postal_code": "110 00",
-     }
-  adress2 = {
-     "city": "Brno",
-     "street": "Česká",
-     "no": "123",
-     "street_no": "1",
-     "postal_code": "666 66",
-     }
-  adress3 = {
-     "city": "Ostrava",
-     "street": "Stodolní",
-     "no": "1",
-     "street_no": "4",
-     "postal_code": "777 77",
-     }
+  address0.city = "Praha"
+  address0.street = ""
+  address0.no = ""
+  address0.street_no = ""
+  address0.postal_code = ""
+  address1.city = "Praha"
+  address1.street = "Hradčanské nám."
+  address1.no = "123"
+  address1.street_no = "1"
+  address1.postal_code = "110 00"
+  address2.city = "Brono"
+  address2.street = "Česká"
+  address2.no = "123"
+  address2.street_no = "1"
+  address2.postal_code = "666 66"
+  address3.city = "Ostrava"
+  address3.street = "Stodolní"
+  address3.no = "1"
+  address3.street_no = "4"
+  address3.postal_code = "777 77"
+  #address4.city = "Zlín"
+  #address4 = {
+  #   "city": "Zlín",
+  #   "street": "náměstí",
+  #   "no": "1",
+  #   "street_no": " ",
+  #   "postal_code": " ",
+  #   } 
+  person0.surname = ""
+  person0.name = ""
+  person0.rc = ""
+  person0.maiden_name = ""
+  person0.nationality = ""
+  person0.marital_status = ""
+  person0.partner_no = ""
+  person0.real = address0
+  person1.surname = "Drobný"
+  person1.name = "Jakub"
+  person1.rc = "11111"
+  person1.maiden_name = ""
+  person1.nationality = "Česká"
+  person1.marital_status = ""
+  person1.partner_no = "2"
+  person1.real = address2
   person2 = { 
    "surname": "Drobná",
    "name": "Jana",
@@ -36,6 +62,6 @@ code: |
    "nationality": "Česká",
    "marital_status": "vdaná",
    "partner_no": "1",
-   "real": adress3,
+   "real": address3,
   }
 ---
