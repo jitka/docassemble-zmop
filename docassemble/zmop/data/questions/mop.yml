@@ -6,7 +6,7 @@ metadata:
   authors:
     - name: Ondřej Profant
       organization: Pirátská strana
-  revision_date: 2015-09-28
+  revision_date: 2015-09-29
 ---
 sections:
   - Úvod
@@ -26,19 +26,31 @@ question: |
   Já, ${ zadatel_jmeno } ${ zadatel_prijmeni }, žádám pro:
 fields:
   code: name_list
+progress: 50
+---
+question: Mimořádná okamžitá pomoc
+subquestion: |
+  Zjednodušený formulář pro mimořádnou okamžitou pomoc
+field:
+  introduction_show
+section: Úvod
+progress: 10
 ---
 mandatory: True
 question: Závěrečná kontrola
 subquestion: |
   Prosím, zkontrolujte si formulář. V případě drobných chyb vás budeme kontaktovat telefonicky a opravíme je spolu.
   
+  % for person in people:
+  % endfor
+  
   Za období ${ date_from } do ${ date_to } žádám pro:  
   
   % for person in people:
-  * ${ person } ${ person.birthdate }
+  * ${ person }, narozen/a ${ person.birthdate }
   % endfor
   
-  o mimořádnou okamžitou pomoc ve výši **${ vyse_prispevku } K**č z důvodů:
+  o mimořádnou okamžitou pomoc ve výši **${ vyse_prispevku } Kč** z důvodů:
   
   Popis situace: 
   
@@ -75,6 +87,10 @@ fields:
       - Česká
       - Slovenská
       - Jiná
+section: Otázky
+need:
+  introduction_show
+progress: 20
 ---
 question: Trvalý pobyt žadatele
 subquestion: Vyplňte trvalý pobyt žadatele ${ zadatel_jmeno } ${zadatel_prijmeni}
@@ -91,6 +107,7 @@ fields:
 section: Otázky
 need:
   - zadatel_jmeno
+progress: 30
 ---
 question: Počet osob
 fields:
@@ -103,6 +120,7 @@ fields:
 need:
   - zadatel_jmeno
   - street
+progress: 40
 ---
 question: Výše příspěvku
 fields:
@@ -119,6 +137,7 @@ section: Otázky
 need:
   - zadatel_jmeno
   - popis_situace
+progress: 80
 ---
 question: Popis životní situace
 fields:
@@ -143,6 +162,7 @@ section: Otázky
 need:
   - zadatel_jmeno
   - people.target_number
+progress: 70
 ---
 code: |
   name_list = list()
