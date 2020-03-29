@@ -6,7 +6,6 @@ sections:
 include:
   - tmp_castecne_vyplnene_hodnoty.yml
   - zpusob_vyplaceni.yml
-  - parametry_podpisu.yml
 ---
 features:
   navigation: True
