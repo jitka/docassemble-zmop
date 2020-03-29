@@ -1,0 +1,20 @@
+---
+include: 
+  - parametry_podpisu.yml
+  - vzorove_hodnoty.yml
+---
+---
+objects:
+  p1: Individual
+---
+code: |
+  p1 = person1
+
+---
+question: Podpis 
+subquestion: |
+  v ${ signition_city }  dne ${ signition_date } 
+buttons:
+  - Exit: exit
+mandatory: True
+---

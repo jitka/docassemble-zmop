@@ -46,6 +46,4 @@ code: |
   a2.belongs_to = ""
   a3 = address0
   a3.belongs_to = ""
-  signition_city = "Havlíčkově Brodě"
-  signition_date = "1.1.2020"
 ---

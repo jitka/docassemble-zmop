@@ -20,7 +20,7 @@ code: |
   address1.no = "123"
   address1.street_no = "1"
   address1.postal_code = "110 00"
-  address2.city = "Brono"
+  address2.city = "Brno"
   address2.street = "Česká"
   address2.no = "123"
   address2.street_no = "1"

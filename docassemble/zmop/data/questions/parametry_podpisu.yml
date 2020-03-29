@@ -3,9 +3,12 @@ question: Podepsáno
 fields:
   - V: signition_city
     default: ${ p1.real.city }
-  - Dne: signition_date
+  - Dne: u_signition_date
     datatype: date
     default: ${ today }
 section: paymend
 progress: 90%
+---
+code: |
+   signition_date = u_signition_date.format("dd. MM. YY")
 ---
