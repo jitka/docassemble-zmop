@@ -1,0 +1,208 @@
+---
+metadata:
+  title: Mimořádná pomoc
+  short title: Mimořádná pomoc
+  description: Žádost o mimořádnou okamžitou pomoc
+  authors:
+    - name: Ondřej Profant
+      organization: Pirátská strana
+    - name: Bára Soukupová
+      organization: Pirátská strana
+  revision_date: 2015-09-30
+---
+sections:
+  - Úvod
+  - Otázky
+  - Kontrola
+---
+features:
+  navigation: True
+  progress bar: True
+---
+objects:
+  - people: DAList.using(object_type=Individual, ask_number=True)
+---
+sets:
+  - people[i].name.first
+question: |
+  Já, ${ zadatel_jmeno } ${ zadatel_prijmeni }, žádám pro:
+fields:
+  code: name_list
+progress: 50
+---
+question: Mimořádná okamžitá pomoc
+subquestion: |
+  **Ideový návrh** na Zjednodušený formulář pro mimořádnou okamžitou pomoc připravený pro Úřad práce.
+  
+  Poslanecký klub Pirátů 30. 3. 2020. 
+  
+  Kontaktní osoba: Bára Soukupová, `bara.soukupova@pirati.cz`
+  
+field:
+  introduction_show
+section: Úvod
+progress: 10
+---
+mandatory: True
+question: Závěrečná kontrola
+subquestion: |
+  Prosím, zkontrolujte si formulář. V případě drobných chyb vás budeme kontaktovat telefonicky a opravíme je spolu.
+  
+  % for person in people:
+  % endfor
+  
+  Za období ${ date_from } do ${ date_to } žádám pro:  
+  
+  % for person in people:
+  * ${ person }, narozen/a ${ person.birthdate }, RČ: ${ person.rc }
+  % endfor
+  
+  o mimořádnou okamžitou pomoc ve výši **${ vyse_prispevku } Kč** z důvodů:
+  
+  Popis situace: 
+  
+  > ${ popis_situace }
+  >
+  > ${ popis_situace_doplneni }
+  
+  Popis účelu: 
+  
+  > ${ popis_ucelu }
+buttons:
+  - Exit: exit
+  - Restart: restart
+section: Kontrola
+progress: 95
+---
+question: Žadatel
+subquestion: |
+  Uveďte informaci o žadateli
+fields:
+  - Jméno: zadatel_jmeno
+    default: "Jan"
+    help: |
+      Uveďte jméno žadatele o mimořádnou okamžitou pomoc.
+  - Příjmení: zadatel_prijmeni
+    default: "Novák"
+    help: |
+      Uveďte přijmení žadatele o mimořádnou okamžitou pomoc.
+  - RČ: rc
+    default: 7401040020
+    help: |
+      Cizinci, pokud nemají v ČR přiděleno rodné číslo, uvedou v kolonce Rodné číslo v ČR datum narození ve tvaru den, měsíc, rok a pohlaví ve tvaru: M nebo Ž (muž nebo žena).
+  - Státní příslušnost: statni_prislusnost
+    input type: dropdown
+    default: Česká
+    choices:
+      - Česká
+      - Slovenská
+      - Jiná
+section: Otázky
+need:
+  introduction_show
+progress: 20
+---
+question: Trvalý pobyt žadatele
+subquestion: Vyplňte trvalý pobyt žadatele ${ zadatel_jmeno } ${zadatel_prijmeni}
+fields:
+  - Ulice: street
+    default: Přádova
+  - Číslo popisné: premise
+    default: 2095
+  - Číslo orientační: street_number
+    datatype: text
+    default: 3
+  - Město: city
+    default: Praha 8
+section: Otázky
+need:
+  - zadatel_jmeno
+progress: 30
+---
+question: Počet osob v domácnosti
+subquestion: |
+  Uveďte členy společné domácnosti (takové s kterými sdílíte náklady na provoz domácnosti). Popřípadě nezaopatřené rodinné příslušníky.
+fields:
+ - Počet osob v domácnosti: people.target_number
+   default: 2
+   min: 1
+   max: 8
+   help: |
+      Uveďte všechny osoby, které společně s žadatel užívají byt. Manžela/ka, nezletilé nezaopatřené děti žadatele a ostatních společně posuzovaných osob uveďte i tehdy jestliže společně s oprávněnou osobou společně byt (obývaný prostor) neužívají.
+need:
+  - zadatel_jmeno
+  - street
+progress: 40
+---
+question: Výše příspěvku
+fields:
+  - Výše příspěvku v Kč: vyse_prispevku
+    default: 5000
+    datatype: number
+  - Od data: date_from
+    datatype: date
+    default: 2020-03-10
+  - Do data: date_to
+    datatype: date
+    default: 2020-03-30
+section: Otázky
+need:
+  - zadatel_jmeno
+  - popis_situace
+progress: 80
+---
+question: Popis životní situace
+fields:
+  - Popis životní situace: popis_situace
+    input type: radio
+    default: V souvislosti s pandemii COVID-19 se mi výrazně snížily přijmy
+    choices:
+      - Vládní opatření pro boj s pandemii COVID-19 mi zamezily v provozování samostatné výdělečné činnosti (SVČ).
+      - V souvislosti s pandemii COVID-19 se mi výrazně snížily přijmy
+      - Jiné
+  - Doplnění popisu životní situace: popis_situace_doplneni
+    datatype: area
+    rows: 5
+    required: False
+  - Popis účelu mimořádné okamžité pomoci: popis_ucelu
+    datatype: checkboxes
+    default: Zaplacení nájemného
+    choices: 
+      - Zaplacení nájemného
+      - Nutné zaopatření členů domácnosti (například obstarání základních potravin, drogerie apod)
+section: Otázky
+need:
+  - zadatel_jmeno
+  - people.target_number
+progress: 70
+---
+code: |
+  name_list = list()
+
+  for index in range(people.number()):
+    name_list.append(
+      {"note": str(index+1) + ". osoba: "
+      })
+    name_list.append(
+      {"label": "Jméno",
+       "field": "people[" + str(index) + "].name.first",
+       "default": "Jana"
+      })
+    name_list.append(
+      {"label": "Přijmení",
+       "field": "people[" + str(index) + "].name.last",
+       "default": zadatel_prijmeni
+      })
+    name_list.append(
+      {"label":"Datum narození",
+       "field": "people[" + str(index) + "].birthdate",
+       "datatype": "date",
+       "default": "1970-10-0" + str((index+1)*2)
+      })
+    name_list.append(
+      {"label":"Rodné číslo",
+       "field": "people[" + str(index) + "].rc",
+       "default": 7401040020
+      })
+    name_list[1]["default"] = zadatel_jmeno
+---
